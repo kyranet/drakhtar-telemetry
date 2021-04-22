@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
-project(Telemetry
+project(telemetry
 	VERSION 0.0.1
 	DESCRIPTION "A Telemetry engine for the Drakhtar game"
 	HOMEPAGE_URL "https://github.com/kyranet/drakhtar-telemetry"
