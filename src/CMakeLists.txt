@@ -9,36 +9,33 @@ target_include_directories(telemetry
 	$<INSTALL_INTERFACE:include>)
 
 if (MSVC)
-    target_compile_options(telemetry
-      PRIVATE
-      /W4
-      /WX
-      )
-    get_target_property(opts telemetry COMPILE_OPTIONS)
+	target_compile_options(telemetry
+		PRIVATE
+		/W4
+	)
+	get_target_property(opts telemetry COMPILE_OPTIONS)
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(telemetry
-      PRIVATE
-      -pedantic
-      -pedantic-errors
-      -Wall
-      -Wextra
-      -Werror
-      -Wno-float-equal
-      -Wno-padded
-      )
+	target_compile_options(telemetry
+		PRIVATE
+		-pedantic
+		-pedantic-errors
+		-Wall
+		-Wextra
+		-Wno-float-equal
+		-Wno-padded
+	)
 else ()
-    target_compile_options(telemetry
-      PRIVATE
-      -pedantic
-      -pedantic-errors
-      -Wall
-      -Wextra
-      -Werror
-      -Wconversion
-      -Wno-c++98-compat
-      -Wno-c++98-compat-pedantic
-      -Wno-float-equal
-      -Wno-padded
-      -Wno-reserved-id-macro
-      )
+	target_compile_options(telemetry
+		PRIVATE
+		-pedantic
+		-pedantic-errors
+		-Wall
+		-Wextra
+		-Wconversion
+		-Wno-c++98-compat
+		-Wno-c++98-compat-pedantic
+		-Wno-float-equal
+		-Wno-padded
+		-Wno-reserved-id-macro
+	)
 endif ()
