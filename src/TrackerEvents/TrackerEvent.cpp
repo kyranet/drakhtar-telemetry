@@ -1,8 +1,8 @@
-#include "TrackerEvent.h"
+#include "TrackerEvents/TrackerEvent.h"
 
 #include <ctime>
 
-#include "Telemetria/Tracker.h"
+#include "Tracker.h"
 
 TrackerEvent::TrackerEvent(TrackerEventType type)
     : eventType_(type), idSession_(Tracker::getInstance().getIdSession()) {

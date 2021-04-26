@@ -1,4 +1,4 @@
-#include "EndEvent.h"
+#include "TrackerEvents/EndEvent.h"
 
 EndEvent::EndEvent(TrackerEventType type)
     : TrackerEvent(type) {

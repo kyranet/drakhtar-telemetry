@@ -1,4 +1,4 @@
-#include "LevelEndEvent.h"
+#include "TrackerEvents/LevelEndEvent.h"
 
 LevelEndEvent::LevelEndEvent(uint32_t levelNumber, LevelResult result)
     : EndEvent(LEVEL_END), levelNumber_(levelNumber), result_(result) {}

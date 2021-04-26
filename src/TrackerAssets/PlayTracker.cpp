@@ -1,9 +1,9 @@
-#include "PlayTracker.h"
+#include "TrackerAssets/PlayTracker.h"
 
-#include "Telemetria/TrackerEvents/LevelEndEvent.h"
-#include "Telemetria/TrackerEvents/RoundEndEvent.h"
-#include "Telemetria/TrackerEvents/RoundStartEvent.h"
-#include "Telemetria/TrackerEvents/TrackerEvent.h"
+#include "TrackerEvents/LevelEndEvent.h"
+#include "TrackerEvents/RoundEndEvent.h"
+#include "TrackerEvents/RoundStartEvent.h"
+#include "TrackerEvents/TrackerEvent.h"
 
 bool PlayTracker::accept(TrackerEvent* event) {
   time_t endTime;

@@ -1,4 +1,4 @@
-#include "SessionEndEvent.h"
+#include "TrackerEvents/SessionEndEvent.h"
 
 SessionEndEvent::SessionEndEvent(uint32_t duration) : EndEvent(SESSION_END) {
   setDuration(duration);

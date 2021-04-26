@@ -1,6 +1,6 @@
-#include "JsonSerializer.h"
+#include "Serialization/JsonSerializer.h"
 
-#include "Telemetria/TrackerEvents/TrackerEvent.h"
+#include "TrackerEvents/TrackerEvent.h"
 
 std::string JsonSerializer::serialize(TrackerEvent* event) noexcept {
   return event->toJson();

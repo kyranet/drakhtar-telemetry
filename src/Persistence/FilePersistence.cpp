@@ -1,13 +1,13 @@
-#include "FilePersistence.h"
+#include "Persistence/FilePersistence.h"
 
 #include <chrono>
 #include <ctime>
 #include <fstream>
 #include <iostream>
 
-#include "../Serialization/ISerializer.h"
-#include "../Tracker.h"
-#include "../TrackerEvents/TrackerEvent.h"
+#include "Serialization/ISerializer.h"
+#include "Tracker.h"
+#include "TrackerEvents/TrackerEvent.h"
 
 FilePersistence::FilePersistence(uint32_t timer) {
   timer_ = timer;

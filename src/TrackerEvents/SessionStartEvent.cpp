@@ -1,4 +1,4 @@
-#include "SessionStartEvent.h"
+#include "TrackerEvents/SessionStartEvent.h"
 
 SessionStartEvent::SessionStartEvent() : TrackerEvent(SESSION_START) {}
 
