@@ -29,30 +29,4 @@ if (MSVC)
 		/W4
 	)
 	get_target_property(opts telemetry COMPILE_OPTIONS)
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	target_compile_options(telemetry
-		PRIVATE
-		-pedantic
-		-pedantic-errors
-		-Wall
-		-Wextra
-		-Wno-float-equal
-		-Wno-padded
-		-luuid
-	)
-else ()
-	target_compile_options(telemetry
-		PRIVATE
-		-pedantic
-		-pedantic-errors
-		-Wall
-		-Wextra
-		-Wconversion
-		-Wno-c++98-compat
-		-Wno-c++98-compat-pedantic
-		-Wno-float-equal
-		-Wno-padded
-		-Wno-reserved-id-macro
-		-luuid
-	)
 endif ()
