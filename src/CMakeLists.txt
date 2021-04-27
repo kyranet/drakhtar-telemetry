@@ -38,6 +38,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		-Wextra
 		-Wno-float-equal
 		-Wno-padded
+		-luuid
 	)
 else ()
 	target_compile_options(telemetry
@@ -52,5 +53,6 @@ else ()
 		-Wno-float-equal
 		-Wno-padded
 		-Wno-reserved-id-macro
+		-luuid
 	)
 endif ()
