@@ -39,7 +39,7 @@ void FilePersistence::flush() {
 
     file.open(filename_, std::ofstream::out | std::ofstream::app);
     if (file.fail())
-      throw std::exception("Tracker Error bin\Telemetry Folder is missing.");
+      throw std::exception("Tracker Error bin/Telemetry Folder is missing.");
     while (!data_.empty()) {
       std::string& event = data_.front();
       file << event;
@@ -50,7 +50,7 @@ void FilePersistence::flush() {
   } catch (std::exception& e) {
     file.close();
 
-    throw std::exception("Tracker Error bin\Telemetry Folder is missing.");
+    throw std::exception("Tracker Error bin/Telemetry Folder is missing.");
   }
 }
 

@@ -10,4 +10,4 @@ std::string SessionStartEvent::toJson() {
   str += "\n" + TrackerEvent::toJson() + "\n";
   str += "    }";
   return str;
-};
+}
