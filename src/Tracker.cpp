@@ -1,6 +1,10 @@
 #include "Tracker.h"
 
+#if defined(_WIN32) || defined(_WIN64)
 #include <combaseapi.h>
+#else
+#include <uuid/uuid.h>
+#endif
 
 #include <cstdio>
 #include <iostream>
@@ -68,6 +72,7 @@ void Tracker::trackEvent(TrackerEvent* event) {
   if (accepted) persistence_->send(event);
 }
 
+#if defined(_WIN32) || defined(_WIN64)
 std::string Tracker::getSpecialId(std::time_t& timestamp) {
   try {
     GUID gidReference;
@@ -103,4 +108,11 @@ std::string Tracker::getSpecialId(std::time_t& timestamp) {
     std::cerr << e.what();
     return "MISSING";
   }
+#else
+std::string Tracker::getSpecialId(std::time_t&) {
+  uuid_t uu{};
+  uuid_generate_time(uu);
+
+  return std::string(reinterpret_cast<char*>(uu));
+#endif
 }
