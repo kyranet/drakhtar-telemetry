@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/RoundEndEvent.h"
 
 RoundEndEvent::RoundEndEvent() : EndEvent(ROUND_END) {}

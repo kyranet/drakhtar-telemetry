@@ -1,8 +1,8 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/EndEvent.h"
 
-EndEvent::EndEvent(TrackerEventType type)
-    : TrackerEvent(type) {
-}
+EndEvent::EndEvent(TrackerEventType type) : TrackerEvent(type) {}
 
 void EndEvent::setDuration(uint32_t duration) {
   duration_.seconds = duration % 60;

@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/LevelStartEvent.h"
 
 LevelStartEvent::LevelStartEvent(uint32_t levelNumber)

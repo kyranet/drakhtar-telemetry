@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/SessionEndEvent.h"
 
 SessionEndEvent::SessionEndEvent(uint32_t duration) : EndEvent(SESSION_END) {

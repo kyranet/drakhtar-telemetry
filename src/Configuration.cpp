@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "Configuration.h"
 
 #ifdef TELEMETRY
