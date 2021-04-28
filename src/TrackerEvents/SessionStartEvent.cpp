@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/SessionStartEvent.h"
 
 SessionStartEvent::SessionStartEvent() : TrackerEvent(SESSION_START) {}

@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/LevelEndEvent.h"
 
 LevelEndEvent::LevelEndEvent(uint32_t levelNumber, LevelResult result)

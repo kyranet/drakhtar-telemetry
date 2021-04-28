@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/EndEvent.h"
 
 EndEvent::EndEvent(TrackerEventType type) : TrackerEvent(type) {}

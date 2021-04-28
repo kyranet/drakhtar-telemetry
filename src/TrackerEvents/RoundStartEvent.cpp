@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "TrackerEvents/RoundStartEvent.h"
 
 RoundStartEvent::RoundStartEvent() : TrackerEvent(ROUND_START) {}
