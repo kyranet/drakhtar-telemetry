@@ -12,11 +12,12 @@ std::string LevelStartEvent::toJson() {
   str += R"(      "Event Type": "Level Start Event",)";
   str += "\n" + TrackerEvent::toJson() + +",\n";
   str += R"(      "Level#": )" + std::to_string(levelNumber_) + "\n";
-  
+
   std::map<std::string, uint16_t>::iterator it;
   str += "    (      \"Army#\": )\n";
   for (it = army_->begin(); it != army_->end(); it++) {
-    str += "            " + it->first + ": " + std::to_string(it->second) + "\n";
+    str +=
+        "            " + it->first + ": " + std::to_string(it->second) + "\n";
   }
 
   str += "    }";

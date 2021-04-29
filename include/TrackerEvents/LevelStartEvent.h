@@ -1,8 +1,9 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
 #pragma once
-#include "TrackerEvent.h"
 #include <map>
+
+#include "TrackerEvent.h"
 
 class LevelStartEvent : public TrackerEvent {
   uint32_t levelNumber_;
