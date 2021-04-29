@@ -10,7 +10,7 @@ std::string LevelStartEvent::toJson() {
   std::string str = ",\n";
   str += "    {\n";
   str += R"(      "Event Type": "Level Start Event",)";
-  str += "\n" + TrackerEvent::toJson() + +",\n";
+  str += "\n" + TrackerEvent::toJson() + ",\n";
   str += R"(      "Level#": )" + std::to_string(levelNumber_) + "\n";
 
   std::map<std::string, uint16_t>::iterator it;
