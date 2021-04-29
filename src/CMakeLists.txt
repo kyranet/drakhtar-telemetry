@@ -1,4 +1,4 @@
-#If it's not Windows, let's include the UUID library from Linux
+# If it's not Windows, let's include the UUID library from Linux
 if (NOT WIN32)
 	find_package(PkgConfig REQUIRED)
 	pkg_search_module(UUID REQUIRED uuid)

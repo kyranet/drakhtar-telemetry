@@ -37,13 +37,12 @@ void FilePersistence::flush() {
     eventMutex_.unlock();
 
     if (filename_.empty())
-      filename_ = "Telemetry/" + Tracker::getInstance().getIdSession() +
+      filename_ = "data/" + Tracker::getInstance().getIdSession() +
                   serializer_->getExtension();
 
     file.open(filename_, std::ofstream::out | std::ofstream::app);
     if (file.fail())
-      throw std::runtime_error(
-          "Tracker Error bin/Telemetry Folder is missing.");
+      throw std::runtime_error("Tracker Error data Folder is missing.");
     while (!data_.empty()) {
       std::string& event = data_.front();
       file << event;
@@ -54,7 +53,7 @@ void FilePersistence::flush() {
   } catch (std::exception& e) {
     file.close();
 
-    throw std::runtime_error("Tracker Error bin/Telemetry Folder is missing.");
+    throw std::runtime_error("Tracker Error data Folder is missing.");
   }
 }
 
