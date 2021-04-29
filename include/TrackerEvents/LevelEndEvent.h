@@ -2,17 +2,18 @@
 
 #pragma once
 #include "EndEvent.h"
+#include <map>
 
 enum LevelResult { VICTORY, DEFEAT, QUIT, ERROR };
 
 class LevelEndEvent : public EndEvent {
   uint32_t levelNumber_;
-  uint32_t roundsPlayed_;
   LevelResult result_;
+  std::map<std::string, uint16_t>* army_;
 
  public:
-  LevelEndEvent(uint32_t levelNumber, LevelResult result);
+  LevelEndEvent(uint32_t levelNumber, LevelResult result,
+                std::map<std::string, uint16_t>* army);
   ~LevelEndEvent() override = default;
-  void setRoundsPlayed(uint32_t roundsPlayed);
   std::string toJson() override;
 };
