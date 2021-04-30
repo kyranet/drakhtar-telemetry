@@ -12,7 +12,7 @@ std::string BuyUnitsEvent::toJson() {
   str += "\n" + TrackerEvent::toJson() + +",\n";
 
   str += "    (      \"Units purchased#\": )\n";
-  for (int i = 0; i < unitsPurchased_.size(); i++) {
+  for (size_t i = 0; i < unitsPurchased_.size(); i++) {
     str += "            " + std::to_string(unitsPurchased_[i].amount) + " " +
            unitsPurchased_[i].name + "s at " +
            std::to_string(unitsPurchased_[i].cost) + " each" + "\n";

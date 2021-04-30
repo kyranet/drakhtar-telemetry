@@ -43,9 +43,6 @@ void Tracker::activateTracker(assets tracker) {
 }
 
 void Tracker::end() {
-  std::time_t endTimeStamp;
-  std::time(&endTimeStamp);
-
   trackEvent(new SessionEndEvent());
 
   running = false;
