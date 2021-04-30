@@ -26,6 +26,7 @@ class TrackerEvent {
   virtual ~TrackerEvent() = default;
 
   const TrackerEventType eventType_;
+  const std::string idGame_;
   const std::string idSession_;
 
   time_t getTimeStamp() const { return timestamp_; };

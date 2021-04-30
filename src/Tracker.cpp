@@ -20,9 +20,11 @@
 Tracker* Tracker::instance_ = nullptr;
 bool Tracker::running = false;
 
+std::string Tracker::getIdGame() { return idGame_; }
 std::string Tracker::getIdSession() { return idSession_; }
 
-void Tracker::init() {
+void Tracker::init(std::string idGame) {
+  idGame_ = idGame;
   std::time(&timestamp_);
 
   idSession_ = getSpecialId(timestamp_);
