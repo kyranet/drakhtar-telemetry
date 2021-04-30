@@ -43,9 +43,8 @@ void Tracker::activateTracker(assets tracker) {
 void Tracker::end() {
   std::time_t endTimeStamp;
   std::time(&endTimeStamp);
-  uint32_t duration = std::difftime(endTimeStamp, timestamp_);
 
-  trackEvent(new SessionEndEvent(duration));
+  trackEvent(new SessionEndEvent());
 
   running = false;
   delete persistence_;
