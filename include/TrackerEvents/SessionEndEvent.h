@@ -5,7 +5,7 @@
 
 class SessionEndEvent : public EndEvent {
  public:
-  SessionEndEvent(uint32_t duration);
+  SessionEndEvent();
   ~SessionEndEvent() override = default;
   std::string toJson() override;
 };

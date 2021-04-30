@@ -3,8 +3,8 @@
 #include "TrackerEvents/LevelStartEvent.h"
 
 LevelStartEvent::LevelStartEvent(uint32_t levelNumber,
-                                 std::map<std::string, uint16_t>* army_)
-    : TrackerEvent(LEVEL_START), levelNumber_(levelNumber) {}
+                                 std::map<std::string, uint16_t>* army)
+    : TrackerEvent(LEVEL_START), levelNumber_(levelNumber), army_(army) {}
 
 std::string LevelStartEvent::toJson() {
   std::string str = ",\n";

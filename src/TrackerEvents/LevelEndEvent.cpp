@@ -4,7 +4,10 @@
 
 LevelEndEvent::LevelEndEvent(uint32_t levelNumber, LevelResult result,
                              std::map<std::string, uint16_t>* army)
-    : EndEvent(LEVEL_END), levelNumber_(levelNumber), result_(result) {}
+    : EndEvent(LEVEL_END),
+      levelNumber_(levelNumber),
+      result_(result),
+      army_(army) {}
 
 std::string resultToString(LevelResult result) {
   switch (result) {
