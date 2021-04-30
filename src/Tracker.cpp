@@ -20,9 +20,11 @@
 Tracker* Tracker::instance_ = nullptr;
 bool Tracker::running = false;
 
+std::string Tracker::getIdGame() { return idGame_; }
 std::string Tracker::getIdSession() { return idSession_; }
 
-void Tracker::init() {
+void Tracker::init(std::string idGame) {
+  idGame_ = idGame;
   std::time(&timestamp_);
 
   idSession_ = getSpecialId(timestamp_);
@@ -41,11 +43,7 @@ void Tracker::activateTracker(assets tracker) {
 }
 
 void Tracker::end() {
-  std::time_t endTimeStamp;
-  std::time(&endTimeStamp);
-  uint32_t duration = std::difftime(endTimeStamp, timestamp_);
-
-  trackEvent(new SessionEndEvent(duration));
+  trackEvent(new SessionEndEvent());
 
   running = false;
   delete persistence_;

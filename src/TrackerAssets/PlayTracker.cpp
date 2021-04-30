@@ -18,8 +18,6 @@ bool PlayTracker::accept(TrackerEvent* event) {
       return false;
     case PLAYER_TURN_END:
       std::time(&endTime);
-      reinterpret_cast<EndEvent*>(event)->setDuration(
-          std::difftime(endTime, startPlayerTurnTime_));
       return true;
 
     case ROUND_START:
@@ -30,8 +28,6 @@ bool PlayTracker::accept(TrackerEvent* event) {
 
     case ROUND_END:
       std::time(&endTime);
-      reinterpret_cast<EndEvent*>(event)->setDuration(
-          std::difftime(endTime, startRoundTime_));
       reinterpret_cast<RoundEndEvent*>(event)->setRoundNumber(++roundCount_);
       return true;
 
@@ -42,9 +38,6 @@ bool PlayTracker::accept(TrackerEvent* event) {
 
     case LEVEL_END:
       std::time(&endTime);
-      reinterpret_cast<EndEvent*>(event)->setDuration(
-          std::difftime(endTime, startLevelTime_));
-      reinterpret_cast<LevelEndEvent*>(event)->setRoundsPlayed(roundCount_);
       return true;
 
     default:

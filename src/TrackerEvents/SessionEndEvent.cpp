@@ -2,9 +2,7 @@
 
 #include "TrackerEvents/SessionEndEvent.h"
 
-SessionEndEvent::SessionEndEvent(uint32_t duration) : EndEvent(SESSION_END) {
-  setDuration(duration);
-}
+SessionEndEvent::SessionEndEvent() : EndEvent(SESSION_END) {}
 
 std::string SessionEndEvent::toJson() {
   std::string str = ",\n";

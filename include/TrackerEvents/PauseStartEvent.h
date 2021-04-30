@@ -3,11 +3,11 @@
 #pragma once
 #include "TrackerEvent.h"
 
-class EndEvent : public TrackerEvent {
- protected:
-  EndEvent(TrackerEventType type);
+class PauseStartEvent : public TrackerEvent {
+  uint32_t levelNumber_;
 
  public:
-  ~EndEvent() override = default;
+  PauseStartEvent(uint32_t levelNumber);
+  ~PauseStartEvent() override = default;
   std::string toJson() override;
 };

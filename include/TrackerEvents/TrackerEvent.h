@@ -13,7 +13,10 @@ enum TrackerEventType {
   ROUND_START,
   ROUND_END,
   PLAYER_TURN_START,
-  PLAYER_TURN_END
+  PLAYER_TURN_END,
+  PAUSE_START,
+  PAUSE_END,
+  UNITS_PURCHASED
 };
 
 class TrackerEvent {
@@ -26,6 +29,7 @@ class TrackerEvent {
   virtual ~TrackerEvent() = default;
 
   const TrackerEventType eventType_;
+  const std::string idGame_;
   const std::string idSession_;
 
   time_t getTimeStamp() const { return timestamp_; };

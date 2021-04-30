@@ -17,6 +17,7 @@ class Tracker {
   Tracker() = default;
   ~Tracker() = default;
 
+  std::string idGame_;
   std::string idSession_;
   std::time_t timestamp_;
 
@@ -29,9 +30,10 @@ class Tracker {
   static Tracker& getInstance();
   static bool isRunning() { return running; }
 
+  std::string getIdGame();
   std::string getIdSession();
 
-  void init();
+  void init(std::string idGame);
   void end();
 
   void activateTracker(assets tracker);
