@@ -3,7 +3,7 @@
 #include "TrackerEvents/PauseStartEvent.h"
 
 PauseStartEvent::PauseStartEvent(uint32_t levelNumber)
-    : TrackerEvent(LEVEL_START), levelNumber_(levelNumber) {}
+    : TrackerEvent(PAUSE_START), levelNumber_(levelNumber) {}
 
 std::string PauseStartEvent::toJson() {
   std::string str = ",\n";

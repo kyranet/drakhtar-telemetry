@@ -3,7 +3,7 @@
 #include "TrackerEvents/PauseEndEvent.h"
 
 PauseEndEvent::PauseEndEvent(uint32_t levelNumber)
-    : TrackerEvent(LEVEL_START), levelNumber_(levelNumber) {}
+    : TrackerEvent(PAUSE_END), levelNumber_(levelNumber) {}
 
 std::string PauseEndEvent::toJson() {
   std::string str = ",\n";

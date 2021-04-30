@@ -13,7 +13,10 @@ enum TrackerEventType {
   ROUND_START,
   ROUND_END,
   PLAYER_TURN_START,
-  PLAYER_TURN_END
+  PLAYER_TURN_END,
+  PAUSE_START,
+  PAUSE_END,
+  UNITS_PURCHASED
 };
 
 class TrackerEvent {

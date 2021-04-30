@@ -3,7 +3,7 @@
 #include "TrackerEvents/BuyUnitsEvent.h"
 
 BuyUnitsEvent::BuyUnitsEvent(std::vector<UnitPurchase> unitsPurchased)
-    : TrackerEvent(LEVEL_START), unitsPurchased_(unitsPurchased) {}
+    : TrackerEvent(UNITS_PURCHASED), unitsPurchased_(unitsPurchased) {}
 
 std::string BuyUnitsEvent::toJson() {
   std::string str = ",\n";
