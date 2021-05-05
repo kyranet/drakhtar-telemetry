@@ -3,11 +3,11 @@
 #include "TrackerAssets/DrakhtarTracker.h"
 
 #include "TrackerEvents/AttackEvent.h"
-#include "TrackerEvents/LevelStartEvent.h"
-#include "TrackerEvents/LevelEndEvent.h"
 #include "TrackerEvents/BuyUnitsEvent.h"
-#include "TrackerEvents/PauseStartEvent.h"
+#include "TrackerEvents/LevelEndEvent.h"
+#include "TrackerEvents/LevelStartEvent.h"
 #include "TrackerEvents/PauseEndEvent.h"
+#include "TrackerEvents/PauseStartEvent.h"
 #include "TrackerEvents/TrackerEvent.h"
 
 bool DrakhtarTracker::accept(TrackerEvent* event) {
