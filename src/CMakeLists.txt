@@ -10,7 +10,7 @@ set(TELEMETRY_SOURCES
 	Persistence/FilePersistence.cpp
 	Persistence/IPersistence.cpp
 	Serialization/JsonSerializer.cpp
-	TrackerAssets/PlayTracker.cpp
+	TrackerAssets/DrakhtarTracker.cpp
 	TrackerEvents/EndEvent.cpp
 	TrackerEvents/LevelEndEvent.cpp
 	TrackerEvents/LevelStartEvent.cpp

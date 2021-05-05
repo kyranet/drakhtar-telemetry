@@ -9,7 +9,7 @@ class ITrackerAsset;
 class TrackerEvent;
 class IPersistence;
 
-enum assets { PLAY_TRACKER };
+enum assets { DRAKHTAR_TRACKER };
 
 class Tracker {
   static Tracker* instance_;

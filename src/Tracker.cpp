@@ -12,7 +12,7 @@
 #include <iostream>
 
 #include "Persistence/IPersistence.h"
-#include "TrackerAssets/PlayTracker.h"
+#include "TrackerAssets/DrakhtarTracker.h"
 #include "TrackerEvents/SessionEndEvent.h"
 #include "TrackerEvents/SessionStartEvent.h"
 #include "third_party/TinySHA1.hpp"
@@ -34,8 +34,8 @@ void Tracker::init(std::string idGame) {
 
 void Tracker::activateTracker(assets tracker) {
   switch (tracker) {
-    case PLAY_TRACKER:
-      activeTrackers_.push_back(new PlayTracker());
+    case DRAKHTAR_TRACKER:
+      activeTrackers_.push_back(new DrakhtarTracker());
       break;
     default:
       break;

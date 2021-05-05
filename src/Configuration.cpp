@@ -17,7 +17,7 @@ void TrackerConfiguration() {
 #else
 #endif
 
-  Tracker::getInstance().activateTracker(PLAY_TRACKER);
+  Tracker::getInstance().activateTracker(DRAKHTAR_TRACKER);
 
   persistence->setSerializer(serializer);
 
