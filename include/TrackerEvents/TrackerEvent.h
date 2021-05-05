@@ -16,7 +16,8 @@ enum TrackerEventType {
   PLAYER_TURN_END,
   PAUSE_START,
   PAUSE_END,
-  UNITS_PURCHASED
+  UNITS_PURCHASED,
+  ATTACK
 };
 
 class TrackerEvent {
