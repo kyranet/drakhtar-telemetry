@@ -34,7 +34,7 @@ void Tracker::init(std::string idGame) {
 
 void Tracker::activateTracker(assets tracker) {
   switch (tracker) {
-    case PLAY_TRACKER:
+    case DRAKHTAR_TRACKER:
       activeTrackers_.push_back(new DrakhtarTracker());
       break;
     default:
