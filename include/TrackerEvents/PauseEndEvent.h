@@ -9,5 +9,5 @@ class PauseEndEvent : public TrackerEvent {
  public:
   PauseEndEvent(uint32_t levelNumber);
   ~PauseEndEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

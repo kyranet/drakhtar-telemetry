@@ -5,6 +5,7 @@
 #include <ctime>
 
 #include "Tracker.h"
+#include "Utils/JsonObject.h"
 
 TrackerEvent::TrackerEvent(TrackerEventType type)
     : eventType_(type),
@@ -13,11 +14,10 @@ TrackerEvent::TrackerEvent(TrackerEventType type)
   std::time(&timestamp_);
 }
 
-std::string TrackerEvent::toJson() {
-  std::string str = R"(      "IdGame": ")" + idGame_ + "\",\n";
-  str += R"(      "IdSession": ")" + idSession_ + "\",\n";
+void TrackerEvent::toJson(JsonObject& object) {
+  object.add("IdGame", idGame_);
+  object.add("IdSession", idSession_);
   char time[30];
   std::strftime(time, 30, "%c", std::localtime(&timestamp_));
-  str += R"(      "Time": ")" + std::string(time) + "\"";
-  return str;
+  object.add("Time", time);
 }

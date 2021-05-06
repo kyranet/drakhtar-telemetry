@@ -10,5 +10,5 @@ class RoundStartEvent : public TrackerEvent {
   RoundStartEvent();
   void setRoundNumber(uint32_t roundNumber);
   ~RoundStartEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

@@ -9,5 +9,5 @@ class PauseStartEvent : public TrackerEvent {
  public:
   PauseStartEvent(uint32_t levelNumber);
   ~PauseStartEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

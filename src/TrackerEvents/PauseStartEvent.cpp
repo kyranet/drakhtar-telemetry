@@ -2,15 +2,13 @@
 
 #include "TrackerEvents/PauseStartEvent.h"
 
+#include "Utils/JsonObject.h"
+
 PauseStartEvent::PauseStartEvent(uint32_t levelNumber)
     : TrackerEvent(PAUSE_START), levelNumber_(levelNumber) {}
 
-std::string PauseStartEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Pause Start Event",)";
-  str += "\n" + TrackerEvent::toJson() + +",\n";
-  str += R"(      "Level#": )" + std::to_string(levelNumber_) + "\n";
-  str += "    }";
-  return str;
+void PauseStartEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Pause Start Event");
+  TrackerEvent::toJson(object);
+  object.add("Level", levelNumber_);
 }

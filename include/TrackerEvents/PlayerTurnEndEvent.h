@@ -7,5 +7,5 @@ class PlayerTurnEndEvent : public EndEvent {
  public:
   PlayerTurnEndEvent();
   ~PlayerTurnEndEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

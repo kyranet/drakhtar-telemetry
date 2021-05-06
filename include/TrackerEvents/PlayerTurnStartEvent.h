@@ -7,5 +7,5 @@ class PlayerTurnStartEvent : public TrackerEvent {
  public:
   PlayerTurnStartEvent();
   ~PlayerTurnStartEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

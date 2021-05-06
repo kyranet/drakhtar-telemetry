@@ -2,14 +2,11 @@
 
 #include "TrackerEvents/SessionStartEvent.h"
 
+#include "Utils/JsonObject.h"
+
 SessionStartEvent::SessionStartEvent() : TrackerEvent(SESSION_START) {}
 
-std::string SessionStartEvent::toJson() {
-  std::string str = "{\n";
-  str += R"(  "Telemetry": [)";
-  str += "\n    {\n";
-  str += R"(      "Event Type": "Session Start Event",)";
-  str += "\n" + TrackerEvent::toJson() + "\n";
-  str += "    }";
-  return str;
+void SessionStartEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Session Start Event");
+  TrackerEvent::toJson(object);
 }

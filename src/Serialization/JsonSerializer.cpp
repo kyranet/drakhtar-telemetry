@@ -3,7 +3,10 @@
 #include "Serialization/JsonSerializer.h"
 
 #include "TrackerEvents/TrackerEvent.h"
+#include "Utils/JsonObject.h"
 
 std::string JsonSerializer::serialize(TrackerEvent* event) noexcept {
-  return event->toJson();
+  JsonObject object{2};
+  event->toJson(object);
+  return object.toString();
 }

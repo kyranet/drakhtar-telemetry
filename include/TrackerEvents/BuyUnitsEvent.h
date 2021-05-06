@@ -13,5 +13,5 @@ class BuyUnitsEvent : public TrackerEvent {
  public:
   BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount);
   ~BuyUnitsEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

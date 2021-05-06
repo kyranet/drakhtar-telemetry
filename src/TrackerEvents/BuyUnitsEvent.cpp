@@ -2,22 +2,18 @@
 
 #include "TrackerEvents/BuyUnitsEvent.h"
 
+#include "Utils/JsonObject.h"
+
 BuyUnitsEvent::BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount)
     : TrackerEvent(UNITS_PURCHASED),
       name_(name),
       cost_(cost),
       amount_(amount) {}
 
-std::string BuyUnitsEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Buy Units Event",)";
-  str += "\n" + TrackerEvent::toJson() + +",\n";
-
-  str += "    (      \"Purchased )\n";
-  str += "            " + std::to_string(amount_) + " " + name_ + "s at " +
-         std::to_string(cost_) + " gold each" + "\n";
-
-  str += "    }";
-  return str;
+void BuyUnitsEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Buy Units Event");
+  TrackerEvent::toJson(object);
+  object.add("UnitName", name_);
+  object.add("UnitAmount", amount_);
+  object.add("UnitCost", cost_);
 }
