@@ -3,10 +3,7 @@
 #include "TrackerEvents/AttackEvent.h"
 
 AttackEvent::AttackEvent(std::string atk, std::string def, uint32_t dam)
-    : TrackerEvent(ATTACK),
-      attacker_(atk),
-      defender_(def),
-      damage_(dam) {}
+    : TrackerEvent(ATTACK), attacker_(atk), defender_(def), damage_(dam) {}
 
 std::string AttackEvent::toJson() {
   std::string str = ",\n";
