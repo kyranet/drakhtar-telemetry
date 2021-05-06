@@ -7,6 +7,8 @@
 
 std::string JsonSerializer::serialize(TrackerEvent* event) noexcept {
   JsonObject object{2};
+  object.open();
   event->toJson(object);
+  object.close();
   return object.toString();
 }

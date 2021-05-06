@@ -49,5 +49,6 @@ class JsonObject : public IValue {
     }
   }
 
+  inline void clear() { stream_.clear(); }
   inline std::string toString() const { return stream_.str(); }
 };

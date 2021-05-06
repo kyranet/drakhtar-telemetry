@@ -29,5 +29,6 @@ class JsonArrayStream : private JsonObject, public IValue {
     }
   }
 
+  inline void clear() { JsonObject::clear(); }
   inline std::string toString() const { return JsonObject::toString(); }
 };
