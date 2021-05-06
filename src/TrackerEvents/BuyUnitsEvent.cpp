@@ -2,8 +2,8 @@
 
 #include "TrackerEvents/BuyUnitsEvent.h"
 
-BuyUnitsEvent::BuyUnitsEvent(std::vector<UnitPurchase> unitsPurchased)
-    : TrackerEvent(UNITS_PURCHASED), unitsPurchased_(unitsPurchased) {}
+BuyUnitsEvent::BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount)
+    : TrackerEvent(UNITS_PURCHASED), name_(name), cost_(cost), amount_(amount) {}
 
 std::string BuyUnitsEvent::toJson() {
   std::string str = ",\n";
@@ -11,12 +11,10 @@ std::string BuyUnitsEvent::toJson() {
   str += R"(      "Event Type": "Buy Units Event",)";
   str += "\n" + TrackerEvent::toJson() + +",\n";
 
-  str += "    (      \"Units purchased#\": )\n";
-  for (size_t i = 0; i < unitsPurchased_.size(); i++) {
-    str += "            " + std::to_string(unitsPurchased_[i].amount) + " " +
-           unitsPurchased_[i].name + "s at " +
-           std::to_string(unitsPurchased_[i].cost) + " each" + "\n";
-  }
+  str += "    (      \"Purchased )\n";
+    str += "            " + std::to_string(amount_) + " " +
+           name_ + "s at " +
+           std::to_string(cost_) + " gold each" + "\n";
 
   str += "    }";
   return str;
