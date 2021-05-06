@@ -6,16 +6,12 @@
 #include "TrackerEvent.h"
 
 class BuyUnitsEvent : public TrackerEvent {
-  struct UnitPurchase {
-    std::string name;
-    uint16_t cost;
-    uint16_t amount;
-  };
-
-  std::vector<UnitPurchase> unitsPurchased_;
+  std::string name_;
+  uint16_t cost_;
+  uint16_t amount_;
 
  public:
-  BuyUnitsEvent(std::vector<UnitPurchase> unitsPurchased);
+  BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount);
   ~BuyUnitsEvent() override = default;
   std::string toJson() override;
 };
