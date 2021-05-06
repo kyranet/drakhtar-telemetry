@@ -23,7 +23,8 @@ set(TELEMETRY_SOURCES
 	TrackerEvents/TrackerEvent.cpp
 	TrackerEvents/PauseStartEvent.cpp
 	TrackerEvents/PauseEndEvent.cpp
-	TrackerEvents/BuyUnitsEvent.cpp)
+	TrackerEvents/BuyUnitsEvent.cpp
+	TrackerEvents/AttackEvent.cpp)
 
 add_library(telemetry SHARED ${TELEMETRY_SOURCES})
 target_compile_features(telemetry PUBLIC cxx_std_17)

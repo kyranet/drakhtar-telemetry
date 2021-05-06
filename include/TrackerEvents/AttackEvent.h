@@ -5,7 +5,7 @@
 
 class AttackEvent : public TrackerEvent {
   std::string attacker_;
-  std::string denfender_;
+  std::string defender_;
   uint32_t damage_;
 
  public:

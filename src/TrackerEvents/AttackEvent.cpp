@@ -2,11 +2,8 @@
 
 #include "TrackerEvents/AttackEvent.h"
 
-AttackEvent::AttackEvent(uint32_t atk, std::string def, std::string dam)
-    : TrackerEvent(ARMY_HIT_POINT),
-      attacker(atk),
-      defender(def),
-      damage_(dam) {}
+AttackEvent::AttackEvent(std::string atk, std::string def, uint32_t dam)
+    : TrackerEvent(ATTACK), attacker_(atk), defender_(def), damage_(dam) {}
 
 std::string AttackEvent::toJson() {
   std::string str = ",\n";
