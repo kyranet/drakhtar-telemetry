@@ -3,7 +3,10 @@
 #include "TrackerEvents/BuyUnitsEvent.h"
 
 BuyUnitsEvent::BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount)
-    : TrackerEvent(UNITS_PURCHASED), name_(name), cost_(cost), amount_(amount) {}
+    : TrackerEvent(UNITS_PURCHASED),
+      name_(name),
+      cost_(cost),
+      amount_(amount) {}
 
 std::string BuyUnitsEvent::toJson() {
   std::string str = ",\n";
@@ -12,9 +15,8 @@ std::string BuyUnitsEvent::toJson() {
   str += "\n" + TrackerEvent::toJson() + +",\n";
 
   str += "    (      \"Purchased )\n";
-    str += "            " + std::to_string(amount_) + " " +
-           name_ + "s at " +
-           std::to_string(cost_) + " gold each" + "\n";
+  str += "            " + std::to_string(amount_) + " " + name_ + "s at " +
+         std::to_string(cost_) + " gold each" + "\n";
 
   str += "    }";
   return str;
