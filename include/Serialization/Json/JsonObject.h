@@ -41,15 +41,9 @@ class JsonObject : public IJsonValue {
             << serialize(value);
   }
 
-  inline void open() { stream_ << START_OBJECT; }
-  inline void close() {
-    if (addedFirstElement_) {
-      stream_ << NEW_LINE << padding_.outter << END_OBJECT;
-    } else {
-      stream_ << END_OBJECT;
-    }
-  }
+  void open();
+  void close();
 
-  void clear() noexcept { stream_.str(""); }
-  std::string toString() const noexcept { return stream_.str(); }
+  void clear() noexcept;
+  std::string toString() const noexcept;
 };

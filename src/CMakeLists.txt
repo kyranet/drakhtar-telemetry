@@ -9,6 +9,8 @@ set(TELEMETRY_SOURCES
 	Tracker.cpp
 	Persistence/FilePersistence.cpp
 	Persistence/IPersistence.cpp
+	Serialization/Json/JsonArrayStream.cpp
+	Serialization/Json/JsonObject.cpp
 	Serialization/Json/JsonSerializer.cpp
 	TrackerAssets/DrakhtarTracker.cpp
 	TrackerEvents/AttackEvent.cpp
