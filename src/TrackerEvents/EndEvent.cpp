@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/EndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 EndEvent::EndEvent(TrackerEventType type) : TrackerEvent(type) {}
 

@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/AttackEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 AttackEvent::AttackEvent(std::string atk, std::string def, uint32_t dam)
     : TrackerEvent(ATTACK), attacker_(atk), defender_(def), damage_(dam) {}

@@ -1,9 +1,9 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
-#include "Serialization/JsonSerializer.h"
+#include "Serialization/Json/JsonSerializer.h"
 
 #include "TrackerEvents/TrackerEvent.h"
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 std::string JsonSerializer::serialize(TrackerEvent* event) noexcept {
   JsonObject object{2};

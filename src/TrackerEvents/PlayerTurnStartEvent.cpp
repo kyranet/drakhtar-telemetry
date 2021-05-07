@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/PlayerTurnStartEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 PlayerTurnStartEvent::PlayerTurnStartEvent()
     : TrackerEvent(PLAYER_TURN_START) {}

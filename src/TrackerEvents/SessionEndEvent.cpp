@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/SessionEndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 SessionEndEvent::SessionEndEvent() : EndEvent(SESSION_END) {}
 

@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/LevelStartEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 LevelStartEvent::LevelStartEvent(uint32_t levelNumber,
                                  std::map<std::string, uint16_t>* army)

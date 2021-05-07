@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/RoundEndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 RoundEndEvent::RoundEndEvent() : EndEvent(ROUND_END) {}
 

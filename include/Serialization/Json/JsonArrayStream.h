@@ -1,7 +1,7 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
-#include "Utils/IValueStream.h"
-#include "Utils/JsonObject.h"
+#include "Serialization/IValueStream.h"
+#include "Serialization/Json/JsonObject.h"
 
 class JsonArrayStream : private JsonObject, public IValueStream {
  public:

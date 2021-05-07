@@ -9,9 +9,9 @@
 #include <stdexcept>
 
 #include "Serialization/ISerializer.h"
+#include "Serialization/IValueStream.h"
 #include "Tracker.h"
 #include "TrackerEvents/TrackerEvent.h"
-#include "Utils/IValueStream.h"
 
 FilePersistence::FilePersistence(uint32_t timer) {
   timer_ = timer;

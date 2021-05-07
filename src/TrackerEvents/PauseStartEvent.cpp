@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/PauseStartEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 PauseStartEvent::PauseStartEvent(uint32_t levelNumber)
     : TrackerEvent(PAUSE_START), levelNumber_(levelNumber) {}

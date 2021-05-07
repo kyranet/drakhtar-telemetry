@@ -3,8 +3,8 @@
 #include "Persistence/IPersistence.h"
 
 #include "Serialization/ISerializer.h"
+#include "Serialization/IValueStream.h"
 #include "TrackerEvents/TrackerEvent.h"
-#include "Utils/IValueStream.h"
 
 void IPersistence::setValueStream(IValueStream* stream) {
   stream_ = stream;

@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/PauseEndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 PauseEndEvent::PauseEndEvent(uint32_t levelNumber)
     : TrackerEvent(PAUSE_END), levelNumber_(levelNumber) {}

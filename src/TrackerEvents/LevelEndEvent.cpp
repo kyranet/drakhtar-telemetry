@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/LevelEndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 LevelEndEvent::LevelEndEvent(uint32_t levelNumber, LevelResult result,
                              std::map<std::string, uint16_t>* army)

@@ -4,8 +4,8 @@
 
 #include <ctime>
 
+#include "Serialization/Json/JsonObject.h"
 #include "Tracker.h"
-#include "Utils/JsonObject.h"
 
 TrackerEvent::TrackerEvent(TrackerEventType type)
     : eventType_(type),

@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "Utils/IValue.h"
+#include "Serialization/Json/IJsonValue.h"
 
-class JsonObject : public IValue {
+class JsonObject : public IJsonValue {
  protected:
   struct Padding {
     std::string outter{};

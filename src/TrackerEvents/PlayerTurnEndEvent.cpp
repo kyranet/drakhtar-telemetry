@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/PlayerTurnEndEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 PlayerTurnEndEvent::PlayerTurnEndEvent() : EndEvent(PLAYER_TURN_END) {}
 

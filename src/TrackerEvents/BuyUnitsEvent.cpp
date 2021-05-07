@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/BuyUnitsEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 BuyUnitsEvent::BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount)
     : TrackerEvent(UNITS_PURCHASED),

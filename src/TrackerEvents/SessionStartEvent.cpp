@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/SessionStartEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 SessionStartEvent::SessionStartEvent() : TrackerEvent(SESSION_START) {}
 

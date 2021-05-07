@@ -2,7 +2,7 @@
 
 #include "TrackerEvents/RoundStartEvent.h"
 
-#include "Utils/JsonObject.h"
+#include "Serialization/Json/JsonObject.h"
 
 RoundStartEvent::RoundStartEvent() : TrackerEvent(ROUND_START) {}
 
