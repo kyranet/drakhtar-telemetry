@@ -4,8 +4,8 @@
 
 class IValueStream {
  public:
-  IValueStream() noexcept = default;
-  virtual ~IValueStream() noexcept = default;
+  IValueStream() = default;
+  virtual ~IValueStream() = default;
 
   virtual void add(const std::string& value) = 0;
   virtual std::string toString() const noexcept = 0;

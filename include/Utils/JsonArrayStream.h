@@ -5,11 +5,10 @@
 
 class JsonArrayStream : private JsonObject, public IValueStream {
  public:
-  JsonArrayStream() noexcept = default;
-  JsonArrayStream(const std::string& padding) noexcept : JsonObject(padding) {}
-  JsonArrayStream(size_t padding) noexcept
-      : JsonObject(std::string(' ', padding)) {}
-  ~JsonArrayStream() noexcept = default;
+  JsonArrayStream() = default;
+  JsonArrayStream(const std::string& padding) : JsonObject(padding) {}
+  JsonArrayStream(size_t padding) : JsonObject(std::string(' ', padding)) {}
+  ~JsonArrayStream() = default;
 
   void add(const std::string& value) {
     if (!addedFirstElement_) {
