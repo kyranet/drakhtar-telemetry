@@ -1,3 +1,5 @@
+// Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
+
 #include "Serialization/Json/JsonArrayStream.h"
 
 void JsonArrayStream::add(const std::string& value) {
