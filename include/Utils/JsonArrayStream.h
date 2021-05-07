@@ -10,17 +10,18 @@ class JsonArrayStream : private JsonObject, public IValueStream {
   JsonArrayStream(size_t padding) : JsonObject(std::string(' ', padding)) {}
   ~JsonArrayStream() = default;
 
-  void add(const std::string& value) {
+  void add(const std::string& value) override {
     if (!addedFirstElement_) {
       addedFirstElement_ = true;
+    } else {
       stream_ << COMMA;
     }
 
     stream_ << NEW_LINE << padding_.inner << value;
   }
 
-  inline void open() { stream_ << START_ARRAY; }
-  inline void close() {
+  void open() override { stream_ << START_ARRAY; }
+  void close() override {
     if (addedFirstElement_) {
       stream_ << NEW_LINE << padding_.outter << END_ARRAY;
     } else {
@@ -28,6 +29,8 @@ class JsonArrayStream : private JsonObject, public IValueStream {
     }
   }
 
-  void clear() noexcept { JsonObject::clear(); }
-  std::string toString() const noexcept { return JsonObject::toString(); }
+  void clear() noexcept override { JsonObject::clear(); }
+  std::string toString() const noexcept override {
+    return JsonObject::toString();
+  }
 };

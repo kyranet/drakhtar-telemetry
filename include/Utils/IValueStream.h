@@ -10,4 +10,7 @@ class IValueStream {
   virtual void add(const std::string& value) = 0;
   virtual std::string toString() const noexcept = 0;
   virtual void clear() noexcept = 0;
+
+  virtual void open() = 0;
+  virtual void close() = 0;
 };

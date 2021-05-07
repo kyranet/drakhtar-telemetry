@@ -14,6 +14,11 @@ class IValue {
   }
 
   [[nodiscard]] inline static std::string serialize(
+      const char* value) noexcept {
+    return serialize(std::string(value));
+  }
+
+  [[nodiscard]] inline static std::string serialize(
       const int8_t value) noexcept {
     return serialize(static_cast<int32_t>(value));
   }

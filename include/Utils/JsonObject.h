@@ -33,6 +33,7 @@ class JsonObject : public IValue {
   void add(const TKey& key, const TValue& value) {
     if (!addedFirstElement_) {
       addedFirstElement_ = true;
+    } else {
       stream_ << COMMA;
     }
 
@@ -49,6 +50,6 @@ class JsonObject : public IValue {
     }
   }
 
-  void clear() noexcept { stream_.clear(); }
+  void clear() noexcept { stream_.str(""); }
   std::string toString() const noexcept { return stream_.str(); }
 };

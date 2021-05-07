@@ -6,7 +6,10 @@
 #include "TrackerEvents/TrackerEvent.h"
 #include "Utils/IValueStream.h"
 
-void IPersistence::setValueStream(IValueStream* stream) { stream_ = stream; }
+void IPersistence::setValueStream(IValueStream* stream) {
+  stream_ = stream;
+  stream_->open();
+}
 
 void IPersistence::setSerializer(ISerializer* serializer) {
   serializer_ = serializer;

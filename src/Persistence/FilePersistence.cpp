@@ -26,7 +26,7 @@ void FilePersistence::send(TrackerEvent* event) {
 
 void FilePersistence::flush() {
   // If there are no events, return early:
-  if (events.empty()) return;
+  if (Tracker::isRunning() && events.empty()) return;
 
   std::ofstream file;
   try {
@@ -52,7 +52,11 @@ void FilePersistence::flush() {
     if (file.fail())
       throw std::runtime_error("Tracker Error data Folder is missing.");
 
-    // Write the stream contents into the file, then clear the stream contents:
+    // If the tracker finished running, close the stream:
+    if (!Tracker::isRunning()) stream_->close();
+
+    // Write the stream contents into the file, then clear the stream
+    // contents:
     file << stream_->toString();
     stream_->clear();
 
