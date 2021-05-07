@@ -1,6 +1,7 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
 #include <string>
+
 #include "Serialization/IValue.h"
 
 class IJsonValue : public IValue {

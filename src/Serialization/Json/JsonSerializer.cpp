@@ -2,8 +2,8 @@
 
 #include "Serialization/Json/JsonSerializer.h"
 
-#include "TrackerEvents/TrackerEvent.h"
 #include "Serialization/Json/JsonObject.h"
+#include "TrackerEvents/TrackerEvent.h"
 
 std::string JsonSerializer::serialize(TrackerEvent* event) noexcept {
   JsonObject object{2};
