@@ -11,20 +11,20 @@ set(TELEMETRY_SOURCES
 	Persistence/IPersistence.cpp
 	Serialization/JsonSerializer.cpp
 	TrackerAssets/DrakhtarTracker.cpp
+	TrackerEvents/AttackEvent.cpp
+	TrackerEvents/BuyUnitsEvent.cpp
 	TrackerEvents/EndEvent.cpp
 	TrackerEvents/LevelEndEvent.cpp
 	TrackerEvents/LevelStartEvent.cpp
+	TrackerEvents/PauseEndEvent.cpp
+	TrackerEvents/PauseStartEvent.cpp
 	TrackerEvents/PlayerTurnEndEvent.cpp
 	TrackerEvents/PlayerTurnStartEvent.cpp
 	TrackerEvents/RoundEndEvent.cpp
 	TrackerEvents/RoundStartEvent.cpp
 	TrackerEvents/SessionEndEvent.cpp
 	TrackerEvents/SessionStartEvent.cpp
-	TrackerEvents/TrackerEvent.cpp
-	TrackerEvents/PauseStartEvent.cpp
-	TrackerEvents/PauseEndEvent.cpp
-	TrackerEvents/BuyUnitsEvent.cpp
-	TrackerEvents/AttackEvent.cpp)
+	TrackerEvents/TrackerEvent.cpp)
 
 add_library(telemetry SHARED ${TELEMETRY_SOURCES})
 target_compile_features(telemetry PUBLIC cxx_std_17)

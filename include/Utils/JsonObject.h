@@ -36,19 +36,19 @@ class JsonObject : public IValue {
       stream_ << COMMA;
     }
 
-    stream_ << NEW_LINE + padding_.inner << serialize(key) << COLON + SPACE
+    stream_ << NEW_LINE << padding_.inner << serialize(key) << COLON << SPACE
             << serialize(value);
   }
 
   inline void open() { stream_ << START_OBJECT; }
   inline void close() {
     if (addedFirstElement_) {
-      stream_ << NEW_LINE + padding_.outter + END_OBJECT;
+      stream_ << NEW_LINE << padding_.outter << END_OBJECT;
     } else {
       stream_ << END_OBJECT;
     }
   }
 
   inline void clear() { stream_.clear(); }
-  inline std::string toString() const { return stream_.str(); }
+  inline std::string toString() const noexcept { return stream_.str(); }
 };
