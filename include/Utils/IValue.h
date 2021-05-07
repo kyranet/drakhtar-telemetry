@@ -57,23 +57,6 @@ class IValue {
     return value ? "true" : "false";
   }
 
-  template <typename T>
-  [[nodiscard]] inline std::string serialize(const std::vector<T>& values) {
-    const auto size = values.size();
-    if (size == 0) return START_ARRAY + END_ARRAY;
-
-    const auto paddedNewLine = NEW_LINE + padding;
-    std::stringstream stream{};
-    stream << START_ARRAY + paddedNewLine << serialize(values[0]);
-    for (size_t i = 1, i < size; ++i) {
-      stream << COMMA + paddedNewLine << serialize(values[i]);
-    }
-
-    stream << paddedNewLine + END_ARRAY;
-
-    return stream.str();
-  }
-
   [[nodiscard]] inline std::string serialize(const IValue& value) {
     return value.toString();
   }
@@ -81,13 +64,13 @@ class IValue {
  public:
   virtual std::string toString() const = 0;
 
-  static constexpr char COLON = ':';
-  static constexpr char QUOTE = '"';
-  static constexpr char COMMA = ',';
-  static constexpr char SPACE = ' ';
-  static constexpr char NEW_LINE = '\n';
-  static constexpr char START_OBJECT = '{';
-  static constexpr char END_OBJECT = '}';
-  static constexpr char START_ARRAY = '[';
-  static constexpr char END_ARRAY = ']';
+  static constexpr char* COLON = ":";
+  static constexpr char* QUOTE = "\"";
+  static constexpr char* COMMA = ",";
+  static constexpr char* SPACE = " ";
+  static constexpr char* NEW_LINE = "\n";
+  static constexpr char* START_OBJECT = "{";
+  static constexpr char* END_OBJECT = "}";
+  static constexpr char* START_ARRAY = "[";
+  static constexpr char* END_ARRAY = "]";
 };
