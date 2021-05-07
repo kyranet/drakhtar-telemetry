@@ -11,46 +11,53 @@
 #include "Serialization/ISerializer.h"
 #include "Tracker.h"
 #include "TrackerEvents/TrackerEvent.h"
+#include "Utils/IValueStream.h"
 
 FilePersistence::FilePersistence(uint32_t timer) {
   timer_ = timer;
   std::ofstream file;
   startThread();
 }
+
 void FilePersistence::send(TrackerEvent* event) {
   std::lock_guard<std::mutex> lock(eventMutex_);
   events.push(event);
 }
 
 void FilePersistence::flush() {
+  // If there are no events, return early:
+  if (events.empty()) return;
+
   std::ofstream file;
   try {
+    // Read all the pending events:
     eventMutex_.lock();
     for (auto size = events.size(); size > 0; --size) {
       auto& event = events.front();
       events.pop();
       eventMutex_.unlock();
-      data_.push(serializer_->serialize(event));
+      stream_->add(serializer_->serialize(event));
       delete event;
       eventMutex_.lock();
     }
     eventMutex_.unlock();
 
+    // If no file name was set, assign a new one:
     if (filename_.empty())
       filename_ = "data/" + Tracker::getInstance().getIdSession() +
                   serializer_->getExtension();
 
+    // Open the file for writing:
     file.open(filename_, std::ofstream::out | std::ofstream::app);
     if (file.fail())
       throw std::runtime_error("Tracker Error data Folder is missing.");
-    while (!data_.empty()) {
-      std::string& event = data_.front();
-      file << event;
-      data_.pop();
-    }
+
+    // Write the stream contents into the file, then clear the stream contents:
+    file << stream_->toString();
+    stream_->clear();
 
     file.close();
-  } catch (std::exception& e) {
+  } catch (std::exception&) {
     file.close();
 
     throw std::runtime_error("Tracker Error data Folder is missing.");

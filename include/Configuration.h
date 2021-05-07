@@ -16,6 +16,7 @@
 
 #ifdef JSON_SERIALIZER
 #include "Serialization/JsonSerializer.h"
+#include "Utils/JsonArrayStream.h"
 #else
 #endif
 

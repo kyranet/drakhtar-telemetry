@@ -4,12 +4,16 @@
 
 #include "Serialization/ISerializer.h"
 #include "TrackerEvents/TrackerEvent.h"
+#include "Utils/IValueStream.h"
+
+void IPersistence::setValueStream(IValueStream* stream) { stream_ = stream; }
 
 void IPersistence::setSerializer(ISerializer* serializer) {
   serializer_ = serializer;
 }
 
 IPersistence::~IPersistence() {
+  delete stream_;
   delete serializer_;
 
   while (!events.empty()) {

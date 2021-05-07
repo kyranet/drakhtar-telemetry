@@ -1,23 +1,23 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
-#include "Utils/IValue.h"
+#include "Utils/IValueStream.h"
 #include "Utils/JsonObject.h"
 
-class JsonArrayStream : private JsonObject, public IValue {
+class JsonArrayStream : private JsonObject, public IValueStream {
  public:
-  JsonArrayStream() = default;
-  JsonArrayStream(const std::string& padding) : JsonObject(padding) {}
-  JsonArrayStream(size_t padding) : JsonObject(std::string(' ', padding)) {}
-  ~JsonArrayStream() = default;
+  JsonArrayStream() noexcept = default;
+  JsonArrayStream(const std::string& padding) noexcept : JsonObject(padding) {}
+  JsonArrayStream(size_t padding) noexcept
+      : JsonObject(std::string(' ', padding)) {}
+  ~JsonArrayStream() noexcept = default;
 
-  template <typename TValue>
-  void add(const TValue& value) {
+  void add(const std::string& value) {
     if (!addedFirstElement_) {
       addedFirstElement_ = true;
       stream_ << COMMA;
     }
 
-    stream_ << NEW_LINE << padding_.inner << serialize(value);
+    stream_ << NEW_LINE << padding_.inner << value;
   }
 
   inline void open() { stream_ << START_ARRAY; }
@@ -29,8 +29,6 @@ class JsonArrayStream : private JsonObject, public IValue {
     }
   }
 
-  inline void clear() { JsonObject::clear(); }
-  inline std::string toString() const noexcept {
-    return JsonObject::toString();
-  }
+  void clear() noexcept { JsonObject::clear(); }
+  std::string toString() const noexcept { return JsonObject::toString(); }
 };
