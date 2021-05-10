@@ -5,14 +5,33 @@
 #include <string>
 #include <vector>
 
-#include "Serialization/Json/IJsonValue.h"
+#include "Serialization/IValueObject.h"
 #include "Serialization/Padding.h"
 
-class JsonObject : public IJsonValue {
+class JsonObject : public IValueObject {
  protected:
+  [[nodiscard]] inline std::string formatString(
+      const std::string& value) noexcept override {
+    // NOTE: Within the boundaries of this program, we are not
+    // serializing special characters (\r, \n...) nor quotes ("), so
+    // escaping them is unnecessary. However, if the need arised and we
+    // need to serialize user input, then we must escape said characters.
+    return QUOTE + value + QUOTE;
+  }
+
   bool addedFirstElement_{false};
   std::stringstream stream_{};
   Padding padding_{};
+
+  static constexpr char COLON = ':';
+  static constexpr char QUOTE = '"';
+  static constexpr char COMMA = ',';
+  static constexpr char SPACE = ' ';
+  static constexpr char NEW_LINE = '\n';
+  static constexpr char START_OBJECT = '{';
+  static constexpr char END_OBJECT = '}';
+  static constexpr char START_ARRAY = '[';
+  static constexpr char END_ARRAY = ']';
 
  public:
   JsonObject() = default;
@@ -20,16 +39,14 @@ class JsonObject : public IJsonValue {
   JsonObject(size_t padding) : padding_(padding) {}
   ~JsonObject() = default;
 
-  template <typename TKey, typename TValue>
-  void add(const TKey& key, const TValue& value) {
+  void addPair(const std::string& key, const std::string& value) {
     if (!addedFirstElement_) {
       addedFirstElement_ = true;
     } else {
       stream_ << COMMA;
     }
 
-    stream_ << NEW_LINE << padding_.inner << serialize(key) << COLON << SPACE
-            << serialize(value);
+    stream_ << NEW_LINE << padding_.inner << key << COLON << SPACE << value;
   }
 
   void open();

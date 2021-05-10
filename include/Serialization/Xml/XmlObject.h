@@ -5,14 +5,17 @@
 #include <string>
 #include <vector>
 
+#include "Serialization/IValueObject.h"
 #include "Serialization/Padding.h"
-#include "Serialization/Xml/IXmlValue.h"
 
-class XmlObject : public IXmlValue {
+class XmlObject : public IValueObject {
  protected:
   bool addedFirstElement_{false};
   std::stringstream stream_{};
   Padding padding_{};
+
+  static constexpr char SPACE = ' ';
+  static constexpr char NEW_LINE = '\n';
 
  public:
   XmlObject() = default;
@@ -20,13 +23,11 @@ class XmlObject : public IXmlValue {
   XmlObject(size_t padding) : padding_(padding) {}
   ~XmlObject() = default;
 
-  template <typename TKey, typename TValue>
-  void add(const TKey& key, const TValue& value) {
+  void addPair(const std::string& key, const std::string& value) {
     addedFirstElement_ = true;
 
-    const auto skey = serialize(key);
-    stream_ << NEW_LINE << padding_.inner << '<' << skey << '>'
-            << serialize(value) << "</" << skey << '>';
+    stream_ << NEW_LINE << padding_.inner << '<' << key << '>' << value << "</"
+            << key << '>';
   }
 
   void open();

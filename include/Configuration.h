@@ -4,7 +4,7 @@
 
 #define TELEMETRY
 #define FILE_PERSISTENCE
-#define JSON_SERIALIZER
+#define XML_SERIALIZER
 
 #ifdef TELEMETRY
 #include "Tracker.h"
