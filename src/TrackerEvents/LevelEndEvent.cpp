@@ -29,7 +29,7 @@ std::string resultToString(LevelResult result) {
 }
 
 void LevelEndEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Level End Event");
+  object.add("EventType", "Level End Event");
   EndEvent::toJson(object);
   object.add("Level", levelNumber_);
   object.add("Result", resultToString(result_));

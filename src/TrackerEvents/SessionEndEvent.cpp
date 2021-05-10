@@ -8,7 +8,7 @@
 SessionEndEvent::SessionEndEvent() : EndEvent(SESSION_END) {}
 
 void SessionEndEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Session End Event");
+  object.add("EventType", "Session End Event");
   EndEvent::toJson(object);
 }
 

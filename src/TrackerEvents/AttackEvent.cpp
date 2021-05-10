@@ -9,7 +9,7 @@ AttackEvent::AttackEvent(std::string atk, std::string def, uint32_t dam)
     : TrackerEvent(ATTACK), attacker_(atk), defender_(def), damage_(dam) {}
 
 void AttackEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "AttackEvent");
+  object.add("EventType", "AttackEvent");
   TrackerEvent::toJson(object);
   object.add("Attacker", attacker_);
   object.add("Defender", defender_);

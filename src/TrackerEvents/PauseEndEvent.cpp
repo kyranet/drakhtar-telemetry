@@ -9,7 +9,7 @@ PauseEndEvent::PauseEndEvent(uint32_t levelNumber)
     : TrackerEvent(PAUSE_END), levelNumber_(levelNumber) {}
 
 void PauseEndEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Pause End Event");
+  object.add("EventType", "Pause End Event");
   TrackerEvent::toJson(object);
   object.add("Level", levelNumber_);
 }

@@ -9,7 +9,7 @@ PauseStartEvent::PauseStartEvent(uint32_t levelNumber)
     : TrackerEvent(PAUSE_START), levelNumber_(levelNumber) {}
 
 void PauseStartEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Pause Start Event");
+  object.add("EventType", "Pause Start Event");
   TrackerEvent::toJson(object);
   object.add("Level", levelNumber_);
 }

@@ -12,7 +12,7 @@ BuyUnitsEvent::BuyUnitsEvent(std::string name, uint16_t cost, uint16_t amount)
       amount_(amount) {}
 
 void BuyUnitsEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Buy Units Event");
+  object.add("EventType", "Buy Units Event");
   TrackerEvent::toJson(object);
   object.add("UnitName", name_);
   object.add("UnitAmount", amount_);

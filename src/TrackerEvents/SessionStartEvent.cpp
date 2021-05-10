@@ -8,7 +8,7 @@
 SessionStartEvent::SessionStartEvent() : TrackerEvent(SESSION_START) {}
 
 void SessionStartEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Session Start Event");
+  object.add("EventType", "Session Start Event");
   TrackerEvent::toJson(object);
 }
 

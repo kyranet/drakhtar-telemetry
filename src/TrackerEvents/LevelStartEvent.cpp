@@ -10,7 +10,7 @@ LevelStartEvent::LevelStartEvent(uint32_t levelNumber,
     : TrackerEvent(LEVEL_START), levelNumber_(levelNumber), army_(army) {}
 
 void LevelStartEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Level Start Event");
+  object.add("EventType", "Level Start Event");
   TrackerEvent::toJson(object);
   object.add("Level", levelNumber_);
 
