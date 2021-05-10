@@ -5,7 +5,7 @@
 
 #include "EndEvent.h"
 
-enum LevelResult { VICTORY, DEFEAT, QUIT, ERROR };
+enum LevelResult { VICTORY, DEFEAT, QUIT, RESTART, ERROR };
 
 class LevelEndEvent : public EndEvent {
   uint32_t levelNumber_;
