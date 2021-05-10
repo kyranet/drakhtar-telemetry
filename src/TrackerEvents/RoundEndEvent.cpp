@@ -2,16 +2,14 @@
 
 #include "TrackerEvents/RoundEndEvent.h"
 
+#include "Serialization/Json/JsonObject.h"
+
 RoundEndEvent::RoundEndEvent() : EndEvent(ROUND_END) {}
 
-std::string RoundEndEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Round End Event",)";
-  str += "\n" + EndEvent::toJson() + +",\n";
-  str += R"(      "Round#": )" + std::to_string(roundNumber_) + "\n";
-  str += "    }";
-  return str;
+void RoundEndEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Round End Event");
+  EndEvent::toJson(object);
+  object.add("Round", roundNumber_);
 }
 
 void RoundEndEvent::setRoundNumber(uint32_t roundNumber) {

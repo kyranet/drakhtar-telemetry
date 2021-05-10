@@ -8,15 +8,17 @@
 
 class TrackerEvent;
 class ISerializer;
+class IValueStream;
 
 class IPersistence {
  protected:
+  IValueStream* stream_ = nullptr;
   ISerializer* serializer_ = nullptr;
   std::queue<TrackerEvent*> events{};
-  std::queue<std::string> data_{};
   IPersistence() = default;
 
  public:
+  void setValueStream(IValueStream* stream);
   void setSerializer(ISerializer* serializer);
 
   virtual void send(TrackerEvent* event) = 0;

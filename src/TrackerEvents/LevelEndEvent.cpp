@@ -2,6 +2,8 @@
 
 #include "TrackerEvents/LevelEndEvent.h"
 
+#include "Serialization/Json/JsonObject.h"
+
 LevelEndEvent::LevelEndEvent(uint32_t levelNumber, LevelResult result,
                              std::map<std::string, uint16_t>* army)
     : EndEvent(LEVEL_END),
@@ -23,20 +25,13 @@ std::string resultToString(LevelResult result) {
   }
 }
 
-std::string LevelEndEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Level End Event",)";
-  str += "\n" + EndEvent::toJson() + +",\n";
-  str += R"(      "Level": )" + std::to_string(levelNumber_) + ",\n";
-  str += R"(      "Result": ")" + resultToString(result_) + "\"\n";
+void LevelEndEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Level End Event");
+  EndEvent::toJson(object);
+  object.add("Level", levelNumber_);
+  object.add("Result", resultToString(result_));
 
-  std::map<std::string, uint16_t>::iterator it;
-  str += R"(      "Army":)";
-  for (it = army_->begin(); it != army_->end(); it++) {
-    str += "\n            " + it->first + ": " + std::to_string(it->second);
+  for (auto& pair : *army_) {
+    object.add(pair.first, pair.second);
   }
-
-  str += "\n    }";
-  return str;
 }

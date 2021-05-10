@@ -1,7 +1,7 @@
 // Copyright 2021 the Drakhtar authors. All rights reserved. MIT license.
 
 #pragma once
-#include "ISerializer.h"
+#include "Serialization/ISerializer.h"
 
 class JsonSerializer : public ISerializer {
  public:

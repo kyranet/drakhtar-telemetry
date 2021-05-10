@@ -10,5 +10,5 @@ class RoundEndEvent : public EndEvent {
   RoundEndEvent();
   ~RoundEndEvent() override = default;
   void setRoundNumber(uint32_t roundNumber);
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

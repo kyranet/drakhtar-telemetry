@@ -9,5 +9,5 @@ class EndEvent : public TrackerEvent {
 
  public:
   ~EndEvent() override = default;
-  std::string toJson() override;
+  virtual void toJson(JsonObject& object) override;
 };

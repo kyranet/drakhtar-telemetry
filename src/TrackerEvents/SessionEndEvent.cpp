@@ -2,15 +2,11 @@
 
 #include "TrackerEvents/SessionEndEvent.h"
 
+#include "Serialization/Json/JsonObject.h"
+
 SessionEndEvent::SessionEndEvent() : EndEvent(SESSION_END) {}
 
-std::string SessionEndEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Session End Event",)";
-  str += "\n" + EndEvent::toJson() + +"\n";
-  str += "    }\n";
-  str += "  ]\n";
-  str += "}\n\n";
-  return str;
+void SessionEndEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Session End Event");
+  EndEvent::toJson(object);
 }

@@ -2,9 +2,8 @@
 
 #include "TrackerEvents/EndEvent.h"
 
+#include "Serialization/Json/JsonObject.h"
+
 EndEvent::EndEvent(TrackerEventType type) : TrackerEvent(type) {}
 
-std::string EndEvent::toJson() {
-  std::string str = TrackerEvent::toJson() + +",\n";
-  return str;
-}
+void EndEvent::toJson(JsonObject& object) { TrackerEvent::toJson(object); }

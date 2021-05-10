@@ -16,5 +16,5 @@ class LevelEndEvent : public EndEvent {
   LevelEndEvent(uint32_t levelNumber, LevelResult result,
                 std::map<std::string, uint16_t>* army);
   ~LevelEndEvent() override = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

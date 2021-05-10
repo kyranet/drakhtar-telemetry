@@ -2,13 +2,11 @@
 
 #include "TrackerEvents/PlayerTurnEndEvent.h"
 
+#include "Serialization/Json/JsonObject.h"
+
 PlayerTurnEndEvent::PlayerTurnEndEvent() : EndEvent(PLAYER_TURN_END) {}
 
-std::string PlayerTurnEndEvent::toJson() {
-  std::string str = ",\n";
-  str += "    {\n";
-  str += R"(      "Event Type": "Player Turn End Event",)";
-  str += "\n" + EndEvent::toJson() + +"\n";
-  str += "    }";
-  return str;
+void PlayerTurnEndEvent::toJson(JsonObject& object) {
+  object.add("Event Type", "Player Turn End Event");
+  EndEvent::toJson(object);
 }

@@ -7,5 +7,5 @@ class SessionStartEvent : public TrackerEvent {
  public:
   SessionStartEvent();
   ~SessionStartEvent() = default;
-  std::string toJson() override;
+  void toJson(JsonObject& object) override;
 };

@@ -5,6 +5,8 @@
 #include <ctime>
 #include <string>
 
+class JsonObject;
+
 enum TrackerEventType {
   SESSION_START,
   SESSION_END,
@@ -35,5 +37,5 @@ class TrackerEvent {
 
   time_t getTimeStamp() const { return timestamp_; };
 
-  virtual std::string toJson();
+  virtual void toJson(JsonObject& object);
 };
