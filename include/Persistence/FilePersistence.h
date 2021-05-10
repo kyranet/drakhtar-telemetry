@@ -8,12 +8,12 @@
 
 class FilePersistence final : public IPersistence {
   std::mutex eventMutex_;
-  uint32_t timer_ = 60;
+  uint64_t timer_{60};
   std::thread* flushThread_;
-  std::string filename_ = "";
+  std::string filename_{""};
 
  public:
-  FilePersistence(uint32_t timer);
+  FilePersistence(uint64_t timer);
   void send(TrackerEvent* event) override;
   void flush() override;
   void run();
