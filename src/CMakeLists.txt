@@ -20,10 +20,6 @@ set(TELEMETRY_SOURCES
 	TrackerEvents/LevelStartEvent.cpp
 	TrackerEvents/PauseEndEvent.cpp
 	TrackerEvents/PauseStartEvent.cpp
-	TrackerEvents/PlayerTurnEndEvent.cpp
-	TrackerEvents/PlayerTurnStartEvent.cpp
-	TrackerEvents/RoundEndEvent.cpp
-	TrackerEvents/RoundStartEvent.cpp
 	TrackerEvents/SessionEndEvent.cpp
 	TrackerEvents/SessionStartEvent.cpp
 	TrackerEvents/TrackerEvent.cpp)
