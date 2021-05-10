@@ -19,6 +19,8 @@ std::string resultToString(LevelResult result) {
       return "DEFEAT";
     case QUIT:
       return "QUIT";
+    case RESTART:
+      return "RESTART";
     case ERROR:
     default:
       return "ERROR";
