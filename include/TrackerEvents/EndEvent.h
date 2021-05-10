@@ -10,4 +10,5 @@ class EndEvent : public TrackerEvent {
  public:
   ~EndEvent() override = default;
   virtual void toJson(JsonObject& object) override;
+  virtual void toXml(XmlObject& object) override;
 };

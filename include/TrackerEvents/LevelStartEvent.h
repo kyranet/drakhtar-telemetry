@@ -13,4 +13,5 @@ class LevelStartEvent : public TrackerEvent {
   LevelStartEvent(uint32_t levelNumber, std::map<std::string, uint16_t>* army);
   ~LevelStartEvent() override = default;
   void toJson(JsonObject& object) override;
+  void toXml(XmlObject& object) override;
 };

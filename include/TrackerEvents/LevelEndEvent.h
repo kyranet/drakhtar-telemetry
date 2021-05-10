@@ -17,4 +17,5 @@ class LevelEndEvent : public EndEvent {
                 std::map<std::string, uint16_t>* army);
   ~LevelEndEvent() override = default;
   void toJson(JsonObject& object) override;
+  void toXml(XmlObject& object) override;
 };

@@ -14,10 +14,12 @@
 #else
 #endif
 
-#ifdef JSON_SERIALIZER
+#if defined(JSON_SERIALIZER)
 #include "Serialization/Json/JsonArrayStream.h"
 #include "Serialization/Json/JsonSerializer.h"
-#else
+#else if defined(XML_SERIALIZER)
+#include "Serialization/Xml/XmlArrayStream.h"
+#include "Serialization/Xml/XmlSerializer.h"
 #endif
 
 void TrackerConfiguration();

@@ -8,4 +8,5 @@ class SessionStartEvent : public TrackerEvent {
   SessionStartEvent();
   ~SessionStartEvent() = default;
   void toJson(JsonObject& object) override;
+  void toXml(XmlObject& object) override;
 };

@@ -5,31 +5,28 @@
 #include <string>
 #include <vector>
 
-#include "Serialization/Json/IJsonValue.h"
 #include "Serialization/Padding.h"
+#include "Serialization/Xml/IXmlValue.h"
 
-class JsonObject : public IJsonValue {
+class XmlObject : public IXmlValue {
  protected:
   bool addedFirstElement_{false};
   std::stringstream stream_{};
   Padding padding_{};
 
  public:
-  JsonObject() = default;
-  JsonObject(const std::string& padding) : padding_(padding) {}
-  JsonObject(size_t padding) : padding_(padding) {}
-  ~JsonObject() = default;
+  XmlObject() = default;
+  XmlObject(const std::string& padding) : padding_(padding) {}
+  XmlObject(size_t padding) : padding_(padding) {}
+  ~XmlObject() = default;
 
   template <typename TKey, typename TValue>
   void add(const TKey& key, const TValue& value) {
-    if (!addedFirstElement_) {
-      addedFirstElement_ = true;
-    } else {
-      stream_ << COMMA;
-    }
+    addedFirstElement_ = true;
 
-    stream_ << NEW_LINE << padding_.inner << serialize(key) << COLON << SPACE
-            << serialize(value);
+    const auto skey = serialize(key);
+    stream_ << NEW_LINE << padding_.inner << '<' << skey << '>'
+            << serialize(value) << "</" << skey << '>';
   }
 
   void open();

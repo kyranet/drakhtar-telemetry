@@ -6,6 +6,7 @@
 #include <string>
 
 class JsonObject;
+class XmlObject;
 
 enum TrackerEventType {
   SESSION_START,
@@ -38,4 +39,5 @@ class TrackerEvent {
   time_t getTimeStamp() const { return timestamp_; };
 
   virtual void toJson(JsonObject& object);
+  virtual void toXml(XmlObject& object);
 };

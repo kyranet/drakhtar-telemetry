@@ -3,6 +3,7 @@
 #include "TrackerEvents/LevelStartEvent.h"
 
 #include "Serialization/Json/JsonObject.h"
+#include "Serialization/Xml/XmlObject.h"
 
 LevelStartEvent::LevelStartEvent(uint32_t levelNumber,
                                  std::map<std::string, uint16_t>* army)
@@ -11,6 +12,16 @@ LevelStartEvent::LevelStartEvent(uint32_t levelNumber,
 void LevelStartEvent::toJson(JsonObject& object) {
   object.add("Event Type", "Level Start Event");
   TrackerEvent::toJson(object);
+  object.add("Level", levelNumber_);
+
+  for (const auto& pair : *army_) {
+    object.add(pair.first, pair.second);
+  }
+}
+
+void LevelStartEvent::toXml(XmlObject& object) {
+  object.add("EventType", "Level Start Event");
+  TrackerEvent::toXml(object);
   object.add("Level", levelNumber_);
 
   for (const auto& pair : *army_) {

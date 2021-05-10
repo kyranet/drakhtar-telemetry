@@ -10,4 +10,5 @@ class PauseEndEvent : public TrackerEvent {
   PauseEndEvent(uint32_t levelNumber);
   ~PauseEndEvent() override = default;
   void toJson(JsonObject& object) override;
+  void toXml(XmlObject& object) override;
 };

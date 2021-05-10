@@ -14,10 +14,12 @@ void TrackerConfiguration() {
 #else
 #endif
 
-#ifdef JSON_SERIALIZER
+#if defined(JSON_SERIALIZER)
   stream = new JsonArrayStream();
   serializer = new JsonSerializer();
-#else
+#else if defined(XML_SERIALIZER)
+  stream = new XmlArrayStream();
+  serializer = new XmlSerializer();
 #endif
 
   Tracker::getInstance().activateTracker(DRAKHTAR_TRACKER);
@@ -27,4 +29,5 @@ void TrackerConfiguration() {
 
   Tracker::getInstance().setPersistence(persistence);
 }
+
 #endif
