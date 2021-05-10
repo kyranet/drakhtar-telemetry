@@ -12,4 +12,5 @@ class AttackEvent : public TrackerEvent {
   AttackEvent(std::string atk, std::string def, uint32_t dam);
   ~AttackEvent() override = default;
   void toJson(JsonObject& object) override;
+  void toXml(XmlObject& object) override;
 };

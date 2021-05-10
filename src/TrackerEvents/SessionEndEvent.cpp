@@ -3,10 +3,16 @@
 #include "TrackerEvents/SessionEndEvent.h"
 
 #include "Serialization/Json/JsonObject.h"
+#include "Serialization/Xml/XmlObject.h"
 
 SessionEndEvent::SessionEndEvent() : EndEvent(SESSION_END) {}
 
 void SessionEndEvent::toJson(JsonObject& object) {
-  object.add("Event Type", "Session End Event");
+  object.add("EventType", "Session End Event");
   EndEvent::toJson(object);
+}
+
+void SessionEndEvent::toXml(XmlObject& object) {
+  object.add("EventType", "Session End Event");
+  EndEvent::toXml(object);
 }

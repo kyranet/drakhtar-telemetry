@@ -12,6 +12,9 @@ set(TELEMETRY_SOURCES
 	Serialization/Json/JsonArrayStream.cpp
 	Serialization/Json/JsonObject.cpp
 	Serialization/Json/JsonSerializer.cpp
+	Serialization/Xml/XmlArrayStream.cpp
+	Serialization/Xml/XmlObject.cpp
+	Serialization/Xml/XmlSerializer.cpp
 	TrackerAssets/DrakhtarTracker.cpp
 	TrackerEvents/AttackEvent.cpp
 	TrackerEvents/BuyUnitsEvent.cpp

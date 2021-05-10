@@ -2,14 +2,14 @@
 
 #pragma once
 #include "Serialization/IValueStream.h"
-#include "Serialization/Json/JsonObject.h"
+#include "Serialization/Xml/XmlObject.h"
 
-class JsonArrayStream : private JsonObject, public IValueStream {
+class XmlArrayStream : private XmlObject, public IValueStream {
  public:
-  JsonArrayStream() = default;
-  JsonArrayStream(const std::string& padding) : JsonObject(padding) {}
-  JsonArrayStream(size_t padding) : JsonObject(padding) {}
-  ~JsonArrayStream() = default;
+  XmlArrayStream() = default;
+  XmlArrayStream(const std::string& padding) : XmlObject(padding) {}
+  XmlArrayStream(size_t padding) : XmlObject(padding) {}
+  ~XmlArrayStream() = default;
 
   void add(const std::string& value) override;
 
