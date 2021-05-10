@@ -17,7 +17,7 @@ void TrackerConfiguration() {
 #if defined(JSON_SERIALIZER)
   stream = new JsonArrayStream();
   serializer = new JsonSerializer();
-#else if defined(XML_SERIALIZER)
+#elif defined(XML_SERIALIZER)
   stream = new XmlArrayStream();
   serializer = new XmlSerializer();
 #endif

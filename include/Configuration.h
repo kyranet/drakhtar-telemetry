@@ -17,7 +17,7 @@
 #if defined(JSON_SERIALIZER)
 #include "Serialization/Json/JsonArrayStream.h"
 #include "Serialization/Json/JsonSerializer.h"
-#else if defined(XML_SERIALIZER)
+#elif defined(XML_SERIALIZER)
 #include "Serialization/Xml/XmlArrayStream.h"
 #include "Serialization/Xml/XmlSerializer.h"
 #endif
