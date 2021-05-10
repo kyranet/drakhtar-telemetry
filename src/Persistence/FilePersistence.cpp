@@ -13,7 +13,7 @@
 #include "Tracker.h"
 #include "TrackerEvents/TrackerEvent.h"
 
-FilePersistence::FilePersistence(uint32_t timer) {
+FilePersistence::FilePersistence(uint64_t timer) {
   timer_ = timer;
   std::ofstream file;
   startThread();
@@ -71,10 +71,10 @@ void FilePersistence::flush() {
 void FilePersistence::run() {
   try {
     std::this_thread::sleep_for(std::chrono::seconds(1));
-    float previousFlushTime = std::clock();
+    auto previousFlushTime = std::clock();
     previousFlushTime /= CLOCKS_PER_SEC;
     while (Tracker::isRunning()) {
-      float currentTime = std::clock();
+      auto currentTime = std::clock();
       currentTime /= CLOCKS_PER_SEC;
       if (currentTime - previousFlushTime >= timer_) {
         flush();
